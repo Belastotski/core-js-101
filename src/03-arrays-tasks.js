@@ -439,11 +439,9 @@ function sortCitiesArray(arr) {
  *           [0,0,0,1,0],
  *           [0,0,0,0,1]]
  */
-function getIdentityMatrix(/* n */) {
-  // return Array.from({ length: n }, (_, i) =>
-  //   Array.from({ length: n }, (_1, j) => (i === j ? 1 : 0))
-  // );
-  throw new Error('Not implemented');
+function getIdentityMatrix(n) {
+  return Array
+    .from({ length: n }, (_, i) => Array.from({ length: n }, (_1, j) => (i === j ? 1 : 0)));
 }
 
 /**
@@ -526,9 +524,8 @@ function group(array, keySelector, valueSelector) {
  *   [[1, 2], [3, 4], [5, 6]], (x) => x     =>   [ 1, 2, 3, 4, 5, 6 ]
  *   ['one','two','three'], x=>x.split('')  =>   ['o','n','e','t','w','o','t','h','r','e','e']
  */
-function selectMany(/* arr, childrenSelector */) {
-  // return arr.flat().map((el) => childrenSelector(el));
-  throw new Error('Not implemented');
+function selectMany(arr, childrenSelector) {
+  return [].concat(...arr.map(childrenSelector));
 }
 
 /**
@@ -571,7 +568,6 @@ function swapHeadAndTail(arr) {
   const center = arr.filter((_, i) => !(i <= arr.length / 2 - 1) && !(i >= arr.length / 2));
   return [...tail, ...center, ...head];
 }
-
 
 module.exports = {
   findElement,
